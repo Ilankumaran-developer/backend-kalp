@@ -7,8 +7,9 @@ const productSchema = new Schema({
     productname: String,
     cost_price: Number,
     description:String,
-    percentage: Number,
-    date_created:Date
+    selling_price: Number,
+    date_created:Date,
+    profit:Number
 })
 
 

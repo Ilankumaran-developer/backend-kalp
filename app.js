@@ -36,3 +36,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.post('/save',crud.save);
 app.get('/show',crud.show);
+app.post('/deleteProduct',crud.deleteProduct);
+app.post('/showbyid',crud.showbyid)
+app.post('/update',crud.updateProduct)
