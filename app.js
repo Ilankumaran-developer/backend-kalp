@@ -26,7 +26,7 @@ require('./connect.js')(()=>{
     db.once('open', function callback () {
         
       });
-      app.listen(2018,()=>{
+      app.listen(process.env.PORT || 2018,()=>{
         console.log('server started')
     })
 });
@@ -39,3 +39,5 @@ app.get('/show',crud.show);
 app.post('/deleteProduct',crud.deleteProduct);
 app.post('/showbyid',crud.showbyid)
 app.post('/update',crud.updateProduct)
+app.get('/showtransactions',crud.showtransactions);
+app.post('/saveTransaction',crud.saveTransaction)

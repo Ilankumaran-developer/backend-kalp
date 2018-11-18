@@ -16,8 +16,30 @@ module.exports = function (mod) {
 
   }
 
+  router.saveTransaction = (req,res) =>{
+    console.log(req.body)
+    let payload = req.body;
+    payload.date_created = new Date();
+
+    const transactions = new mod.transactions(payload);
+    transactions.save(function (err, response) {
+
+      res.send(response)
+    });
+
+  }
+
   router.show = function (req, res) {
     mod.products.find((err, response) => {
+      console.log(response)
+      res.send(response)
+    })
+
+  }
+
+  
+  router.showtransactions = function (req, res) {
+    mod.transactions.find((err, response) => {
 
       res.send(response)
     })

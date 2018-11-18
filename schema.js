@@ -12,10 +12,22 @@ const productSchema = new Schema({
     profit:Number
 })
 
+const transSchema = new Schema({
+    user: String,
+    transaction:[],
+    service_tax: Number,
+    total:Number,
+    profit:Number,
+    grand_total:Number,
+    date_created:Date
+   
+})
+
 
 
 const load = {
-    products: productSchema
+    products: productSchema,
+    transactions : transSchema
 }
 
 module.exports = load;
