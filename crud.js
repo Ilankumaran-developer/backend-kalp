@@ -30,6 +30,7 @@ module.exports = function (mod) {
   }
 
   router.show = function (req, res) {
+    console.log('showing products',req.body)
     mod.products.find((err, response) => {
       console.log(response)
       res.send(response)
@@ -88,6 +89,37 @@ module.exports = function (mod) {
       else{
         return response;
       }
+    })
+  }
+  router.showtransbyid = (req,res) =>{
+    
+    mod.transactions.findById(req.body.id,(err,response)=>{
+      if(err)
+      {
+        res.send(err)
+      }
+      else{
+        res.send(response)
+      }
+    })
+  }
+  router.deleteTransaction = (req,res) => {
+    mod.transactions.findByIdAndRemove(req.body._id, (err, resp) => {
+      if (!err) {
+        mod.transactions.find((err, response) => {
+        res.send({
+          message: "Deleted Successfully",
+          status: 1,
+          products:response
+        })
+      })
+      }
+    })
+  }
+  router.getProdDetails = (req,res)=>{
+    mod.products.find({'_id':{$in:req.body.ids}},(err, response) => {
+      console.log(response)
+      res.send(response)
     })
   }
 

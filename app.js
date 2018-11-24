@@ -41,3 +41,6 @@ app.post('/showbyid',crud.showbyid)
 app.post('/update',crud.updateProduct)
 app.get('/showtransactions',crud.showtransactions);
 app.post('/saveTransaction',crud.saveTransaction)
+app.post('/showtransbyid',crud.showtransbyid);
+app.post('/deleteTransaction',crud.deleteTransaction);
+app.post('/getProdDetails',crud.getProdDetails)
