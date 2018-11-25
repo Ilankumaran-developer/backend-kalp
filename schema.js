@@ -26,13 +26,8 @@ const transSchema = new Schema({
 
 
 const settingsSchema = new Schema({
-    favicon: String,
-    site_title:[],
-    service_tax: Number,
-    total:Number,
-    profit:Number,
-    grand_total:Number,
-    date_created:Date
+  product:{},
+  mail:{}
    
 })
 
