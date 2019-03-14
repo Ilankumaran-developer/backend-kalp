@@ -28,9 +28,13 @@ const transSchema = new Schema({
 })
 
 
-const settingsSchema = new Schema({
-  product:{},
-  mail:{}
+const mailConfigSchema = new Schema({
+    host: String,
+    from: String,
+    service:String,
+    username: String,
+    password: String,
+
    
 })
 
@@ -38,7 +42,8 @@ const settingsSchema = new Schema({
 
 const load = {
     products: productSchema,
-    transactions : transSchema
+    transactions : transSchema,
+    mailer : mailConfigSchema
 }
 
 module.exports = load;
