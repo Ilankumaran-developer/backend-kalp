@@ -1,0 +1,18 @@
+{
+    "kalpatharu":{
+        "project_name":"kalpatharu",
+        "port":2018,
+        "host":"localhost",
+        "protocol":"http",
+        "message_queue":0,
+        "redis":0,
+        "config_db":{
+            "protocol":"mongodb",
+            "username":"Ilankumaran-developer",
+            "password":"ilan86828",
+            "port":"21955",
+            "database":"tripwell"
+            
+        }
+    }
+}

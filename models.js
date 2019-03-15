@@ -1,6 +1,6 @@
-const schema = require('./schema.js');
+const schema = require('./lib/schema/kalpatharu/schema.js');
 const mongoose = require('mongoose');
-const products = mongoose.model('product',schema.products);
+const products = mongoose.model('products',schema.products);
 const transactions = mongoose.model('transactions',schema.transactions);
 const mailer = mongoose.model('mailer',schema.mailer);
 
