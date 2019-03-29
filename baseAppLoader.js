@@ -17,7 +17,7 @@ class BaseAppLoader{
     async connectDB(){
         let me  = this;
         let conStr = me._constructConnectionString();
-        me._buildConnection(conStr);
+        await me._buildConnection(conStr);
         return true;
     }
     _constructConnectionString(){
@@ -31,20 +31,24 @@ class BaseAppLoader{
         }
        
     }
-    _buildConnection(str){
-        try{
+    async _buildConnection(str){
+        return new Promise((resolve,reject)=>{
+            try{
 
-            mongoose.connect(str,{ useNewUrlParser: true },(err)=>{
-                if(err)
-                    throw err;
-                const db = mongoose.connection;
-                db.on('error', console.error.bind(console, 'connection error:'));
-                db.once('open', function callback () {
-                });
-            })
-        }catch(e){
-            throw e;
-        }
+                mongoose.connect(str,{ useNewUrlParser: true },(err)=>{
+                    if(err)
+                        reject(err)
+                    const db = mongoose.connection;
+                    db.on('error', console.error.bind(console, 'connection error:'));
+                    db.once('open', function callback () {
+                    });
+                    resolve(1);
+                })
+            }catch(e){
+                reject(e);
+            }
+        })
+        
     }
 
     loadModels(){

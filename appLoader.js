@@ -2,6 +2,7 @@ const rootConfig = require('./config.json'),
 BaseAppLoader = require('./baseAppLoader.js'),
 cors = require('cors'),
 _ = require('lodash'),
+express = require('express'),
 bodyParser = require('body-parser');
 
 
@@ -21,7 +22,7 @@ class Apploader extends BaseAppLoader{
     async bootApp(){
         try{
             let me = this;
-            if(me.connectDB()){
+            if(await me.connectDB()){
                 me.startServer();
                 me.setCORS();
                 me.setBodyParser();
@@ -29,6 +30,7 @@ class Apploader extends BaseAppLoader{
                 me.loadRoutes(me.app,models);
             }
         }catch(e){
+            console.log(e)
             throw e;
         }
         
@@ -51,6 +53,7 @@ class Apploader extends BaseAppLoader{
             let me = this;
             me.app.use(cors({origin: `${me.config.protocol}://${me.config.host}:3000`,credentials: true}));
         }catch(e){
+            console.log(e)
             throw e;
         }
     }
