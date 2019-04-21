@@ -35,13 +35,21 @@
                             <thead>
                                 <tr>
                                     <td><strong>Item</strong></td>
-                                    <td class="text-center"><strong>Price</strong></td>
+                                   
                                     <td class="text-center"><strong>Quantity</strong></td>
                                     <td class="text-right"><strong>Totals</strong></td>
                                 </tr>
                             </thead>
                             <tbody>
-                             {{tableDetails}}
+                              {{#each line_items}}
+                              <tr>
+                                <td>{{product_name}}</td>
+                                
+                                <td>{{unit}}</td>
+                                <td>{{selling_price}}</td>
+                              </tr>
+                              {{/each}}
+        
                                 <tr>
                                     <td class="thick-line"></td>
                                     <td class="thick-line"></td>

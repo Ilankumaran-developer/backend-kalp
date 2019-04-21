@@ -23,8 +23,12 @@ class BaseAppLoader{
     _constructConnectionString(){
         try{
             let me = this;
+            let str = '';
             let dbConfig = _.get(me.config, 'config_db');
-            let str = `${dbConfig.protocol}://${dbConfig.username}:${dbConfig.password}@ds121955.mlab.com:${dbConfig.port}/${dbConfig.database}`;
+            if(dbConfig.local)
+                str = `${dbConfig.protocol}://${dbConfig.host}:${dbConfig.localport}/${dbConfig.database}`;
+            else
+                str = `${dbConfig.protocol}://${dbConfig.username}:${dbConfig.password}@ds121955.mlab.com:${dbConfig.port}/${dbConfig.database}`;
             return str;
         }catch(e){
             throw e;
