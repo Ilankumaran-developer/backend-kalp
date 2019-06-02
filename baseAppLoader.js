@@ -26,7 +26,7 @@ class BaseAppLoader{
             let str = '';
             let dbConfig = _.get(me.config, 'config_db');
             if(dbConfig.local)
-                str = `${dbConfig.protocol}://${dbConfig.host}:${dbConfig.localport}/${dbConfig.database}`;
+                str = `${dbConfig.protocol}://${dbConfig.localhost}:${dbConfig.localport}/${dbConfig.database}`;
             else
                 str = `${dbConfig.protocol}://${dbConfig.username}:${dbConfig.password}@ds121955.mlab.com:${dbConfig.port}/${dbConfig.database}`;
             return str;
