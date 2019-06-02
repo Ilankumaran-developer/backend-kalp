@@ -1,10 +1,20 @@
 <html>
+ 
+        
+
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<div class="body">
+<div className="animated fadeIn">
 <div class="container">
     <div class="row">
         <div class="col-md-6">
         <div class="invoice-title">
-            <h2>Invoice</h2>
-            <h3 class="pull-right">Order # {{id}}
+            <h2 style="display: inline-block;"> Kalpatharu</h2>
+            <h3 style="display: inline-block;" class="pull-right">Order # {{id}}
             </h3>
         </div>
         <hr />
@@ -33,7 +43,7 @@
                     <div class="table-responsive">
                         <table class="table table-condensed">
                             <thead>
-                                <tr>
+                                <tr >
                                     <td><strong>Item</strong></td>
                                    
                                     <td class="text-center"><strong>Quantity</strong></td>
@@ -45,28 +55,28 @@
                               <tr>
                                 <td>{{product_name}}</td>
                                 
-                                <td>{{unit}}</td>
-                                <td>{{selling_price}}</td>
+                                <td class="text-center">{{unit}}</td>
+                                <td  class="text-right">{{selling_price}}</td>
                               </tr>
                               {{/each}}
         
                                 <tr>
-                                    <td class="thick-line"></td>
-                                    <td class="thick-line"></td>
-                                    <td class="thick-line text-center"><strong>Subtotal</strong></td>
-                                    <td class="thick-line text-right">{{subtotal}}</td>
+                                    <td style="border-top: 2px solid" class="thick-line"></td>
+                                    <td style="border-top: 2px solid" class="thick-line"></td>
+                                    <td style="border-top: 2px solid" class="thick-line text-center"><strong>Subtotal</strong></td>
+                                    <td style="border-top: 2px solid" class="thick-line text-right">{{subtotal}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="no-line"></td>
-                                    <td class="no-line"></td>
-                                    <td class="no-line text-center"><strong>Service Tax(GST)</strong></td>
-                                    <td class="no-line text-right">{{service_tax}}</td>
+                                    <td style="border-top: none" class="no-line"></td>
+                                    <td style="border-top: none" class="no-line"></td>
+                                    <td style="border-top: none" class="no-line text-center"><strong>Service Tax(GST)</strong></td>
+                                    <td style="border-top: none" class="no-line text-right">{{service_tax}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="no-line"></td>
-                                    <td class="no-line"></td>
-                                    <td class="no-line text-center"><strong>Total</strong></td>
-                                    <td class="no-line text-right">{{grand_total}}</td>
+                                    <td style="border-top: none" class="no-line"></td>
+                                    <td style="border-top: none" class="no-line"></td>
+                                    <td style="border-top: none" class="no-line text-center"><strong>Total</strong></td>
+                                    <td style="border-top: none" class="no-line text-right">{{grand_total}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -76,27 +86,7 @@
         </div>
     </div>
 </div>
+</div>
+</div>
 
-
-<style>
-    .invoice-title h2 {
-        display: inline-block;
-    }
-
-    .invoice-title h3 {
-        display: inline-block;
-    }
-
-    .table>tbody>tr>.no-line {
-        border-top: none;
-    }
-
-    .table>tbody>tr>.thick-line {
-        border-top: 2px solid;
-    }
-
-    .table>thead>tr>.no-line {
-        border-bottom: none;
-    }
-</style>
 </html>
